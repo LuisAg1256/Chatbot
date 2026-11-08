@@ -1,0 +1,97 @@
+<!-- Widget Flotante DilemaBot -->
+<div id="dilemabot-widget-container" class="fixed bottom-6 right-6 z-50 font-sans">
+    
+    <!-- Botón Flotante de Activación -->
+    <button id="dilemabot-toggle-btn"
+        class="group flex items-center gap-3 bg-gradient-to-r from-blue-700 to-indigo-700 hover:from-blue-600 hover:to-indigo-600 text-white px-5 py-3.5 rounded-full shadow-2xl hover:shadow-blue-500/20 transition-all duration-300 transform hover:-translate-y-0.5 focus:outline-none focus:ring-4 focus:ring-blue-500/20 border border-blue-400/20">
+        <div class="relative flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:scale-105 transition-transform text-white">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+            </svg>
+            <span class="absolute top-0 right-0 w-2 h-2 bg-emerald-400 border border-slate-900 rounded-full"></span>
+        </div>
+        <div class="text-left">
+            <span class="block text-xs font-semibold leading-tight tracking-wide">DilemaBot</span>
+            <span class="block text-[10px] text-blue-200">Consultar criterios éticos</span>
+        </div>
+    </button>
+
+    <!-- Ventana Modal Flotante de Conversación -->
+    <div id="dilemabot-panel"
+        class="hidden flex-col w-[390px] sm:w-[440px] h-[600px] max-h-[85vh] bg-slate-900 border border-slate-700/80 rounded-2xl shadow-2xl overflow-hidden fixed bottom-24 right-6 transition-all duration-300 z-50">
+        
+        <!-- Encabezado del Chat -->
+        <div class="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/70 p-4 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-blue-600/20 border border-blue-500/30 flex items-center justify-center text-blue-300 shadow-inner">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-sm font-bold text-white flex items-center gap-2">
+                        DilemaBot
+                        <span class="text-[9px] font-mono uppercase tracking-wider bg-slate-800 text-slate-300 px-2 py-0.5 rounded border border-slate-700">RAG Especializado</span>
+                    </h3>
+                    <p class="text-[11px] text-slate-400">Observatorio de Ética y Regulación de Medios</p>
+                </div>
+            </div>
+            <div class="flex items-center gap-1.5">
+                <button id="dilemabot-clear-btn" title="Reiniciar sesión"
+                    class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                    </svg>
+                </button>
+                <button id="dilemabot-close-btn" title="Cerrar panel"
+                    class="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-slate-800 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra institucional de alcance -->
+        <div class="bg-slate-950/80 border-b border-slate-800 px-3.5 py-2 flex items-center justify-between text-[11px] text-slate-400">
+            <span>Orientación basada en corpus normativo</span>
+            <span class="text-[10px] text-slate-500 font-mono">UTPL 2026</span>
+        </div>
+
+        <!-- Área de Mensajes con Scroll -->
+        <div id="dilemabot-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-950/60">
+            <!-- Mensajes dinámicos -->
+        </div>
+
+        <!-- Indicador de procesamiento -->
+        <div id="dilemabot-typing" class="hidden px-4 py-2.5 bg-slate-900 border-t border-slate-800 flex items-center gap-2.5 text-xs text-slate-400 font-mono">
+            <span class="inline-flex gap-1">
+                <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce"></span>
+                <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce [animation-delay:0.2s]"></span>
+                <span class="w-1.5 h-1.5 bg-blue-400 rounded-full animate-bounce [animation-delay:0.4s]"></span>
+            </span>
+            <span>Consultando fuentes normativas...</span>
+        </div>
+
+        <!-- Entrada de Texto -->
+        <div class="p-3 bg-slate-900 border-t border-slate-800">
+            <form id="dilemabot-form" class="flex items-center gap-2">
+                <input type="text" id="dilemabot-input"
+                    placeholder="Escribe una consulta o situación dilemática..."
+                    class="flex-1 bg-slate-950 text-slate-100 placeholder-slate-500 text-xs sm:text-sm px-3.5 py-2.5 rounded-xl border border-slate-700 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition"
+                    autocomplete="off" required>
+                <button type="submit" id="dilemabot-send-btn"
+                    class="bg-blue-600 hover:bg-blue-500 text-white p-2.5 rounded-xl transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed shadow">
+                    <svg class="w-4 h-4 transform rotate-90" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
+                    </svg>
+                </button>
+            </form>
+            <div class="mt-1.5 text-[10px] text-slate-500 flex items-center justify-between px-1">
+                <span>Cita leyes y códigos de ética</span>
+                <span>Enter para enviar</span>
+            </div>
+        </div>
+
+    </div>
+</div>

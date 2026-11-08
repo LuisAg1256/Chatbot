@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Observatorio DilemaBot | Ética de la IA en Periodismo y Comunicación</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#0a0f1d',
+                            surface: '#111827',
+                            card: '#1e293b',
+                            accent: '#3b82f6',
+                            highlight: '#f97316'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #334155; border-radius: 9999px; }
+        ::-webkit-scrollbar-thumb:hover { background: #475569; }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-blue-600 selection:text-white">
+
+    <!-- Navegación Superior Institucional -->
+    <header class="sticky top-0 z-40 bg-slate-950/85 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <div class="w-8 h-8 rounded-lg bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-blue-400 font-mono font-bold text-xs tracking-wider">
+                    DB
+                </div>
+                <div>
+                    <span class="text-base font-bold tracking-tight text-white flex items-center gap-2">
+                        Dilema<span class="text-blue-500">Bot</span>
+                        <span class="text-[10px] font-mono uppercase px-2 py-0.5 rounded bg-slate-900 text-slate-400 border border-slate-700">UTPL 2026-2027</span>
+                    </span>
+                </div>
+            </div>
+
+            <nav class="hidden md:flex items-center gap-6 text-xs uppercase tracking-wider text-slate-400 font-medium">
+                <a href="#principios" class="hover:text-white transition">Pilares Éticos</a>
+                <a href="#dilemas" class="hover:text-white transition">Casos de Estudio</a>
+                <a href="#corpus" class="hover:text-white transition">Marco Normativo</a>
+                <a href="#arquitectura" class="hover:text-white transition">Metodología RAG</a>
+            </nav>
+
+            <div>
+                <button onclick="window.openDilemaBotWithQuery('')"
+                    class="flex items-center gap-2 bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-medium px-4 py-2 rounded-xl border border-slate-700 hover:border-slate-600 transition shadow-sm">
+                    <span>Consultar Asistente</span>
+                    <span class="text-blue-400">→</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section: Presentación del Reto y del Observatorio -->
+    <section class="relative pt-12 pb-20 border-b border-slate-800 overflow-hidden bg-gradient-to-b from-slate-900 to-slate-950">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Encabezado de Identificación Académica -->
+            <div class="flex flex-wrap items-center gap-2 mb-6 text-[11px] font-mono text-slate-400">
+                <span class="bg-slate-900 px-3 py-1 rounded-md border border-slate-800">
+                    Proyecto de Innovación Educativa
+                </span>
+                <span class="text-slate-600">/</span>
+                <span class="bg-slate-900 px-3 py-1 rounded-md border border-slate-800">
+                    Computación × Comunicación Social
+                </span>
+                <span class="text-slate-600">/</span>
+                <span class="bg-slate-900 px-3 py-1 rounded-md border border-slate-800 text-blue-400">
+                    Semestre Octubre 2026 – Febrero 2027
+                </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <!-- Columna Izquierda: El Problema Periodístico -->
+                <div class="lg:col-span-7 space-y-6">
+                    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
+                        La inteligencia artificial en la práctica periodística: <span class="text-blue-400 font-serif italic">análisis ético y normativo</span>.
+                    </h1>
+                    <p class="text-base text-slate-300 leading-relaxed font-normal">
+                        La adopción de modelos generativos en salas de redacción plantea dilemas deontológicos inmediatos sobre autoría, veracidad y transparencia. <strong>DilemaBot</strong> es un prototipo tecnológico desarrollado para asistir en la deliberación ética mediante <strong>respuestas fundamentadas y trazables</strong> en leyes y guías de ejercicio profesional.
+                    </p>
+
+                    <!-- Diálogo de muestra institucional -->
+                    <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg space-y-3">
+                        <div class="flex items-center justify-between text-xs text-slate-400 border-b border-slate-800/80 pb-2">
+                            <span class="font-medium text-slate-300">Consulta de referencia</span>
+                            <span class="text-[10px] font-mono text-slate-500">Caso de estudio</span>
+                        </div>
+                        <div class="flex justify-end">
+                            <div class="bg-slate-800 border border-slate-700 text-slate-200 text-xs px-3.5 py-2 rounded-xl max-w-[85%]">
+                                ¿Debe indicarse expresamente a la audiencia si un reportaje fue ilustrado con imágenes generadas por IA?
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-6 h-6 rounded bg-blue-600/30 text-blue-400 font-mono text-[10px] flex items-center justify-center border border-blue-500/40 shrink-0 font-bold">
+                                DB
+                            </div>
+                            <div class="bg-slate-950 border border-slate-800 text-slate-300 text-xs p-3.5 rounded-xl space-y-2 max-w-[90%]">
+                                <p class="leading-relaxed">
+                                    Corresponde a un dilema de <strong>transparencia y veracidad</strong>. Conforme a las guías deontológicas vigentes, cualquier pieza visual sintética debe rotularse de forma visible para no confundir al lector ni desvirtuar el valor documental del fotoperiodismo.
+                                </p>
+                                <div class="text-[10px] text-slate-400 bg-slate-900 px-2.5 py-1 rounded border border-slate-800 inline-block font-mono">
+                                    Referencia: Guía para el uso de la IA en los medios argentinos (Pág. 3)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Píldoras de los 6 principios -->
+                    <div class="flex flex-wrap gap-2 pt-1 text-xs text-slate-400">
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 font-medium">Veracidad</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 font-medium">Transparencia</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 font-medium">Autoría</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 font-medium">Privacidad</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 font-medium">Independencia</span>
+                        <span class="px-2.5 py-1 rounded-md bg-slate-900 border border-slate-800 font-medium">Pluralismo</span>
+                    </div>
+                </div>
+
+                <!-- Columna Derecha: Tarjeta Metodológica del Reto -->
+                <div class="lg:col-span-5 space-y-4">
+                    <div class="bg-slate-900 border border-slate-800 rounded-3xl p-6 shadow-xl relative">
+                        <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-800">
+                            <span class="text-xs font-mono font-semibold uppercase text-slate-400">Objetivo del Reto</span>
+                            <span class="text-[10px] font-mono bg-blue-950 text-blue-300 px-2.5 py-0.5 rounded border border-blue-800">Aprendizaje Basado en Retos</span>
+                        </div>
+                        <h2 class="text-lg font-bold text-white mb-2 leading-snug">
+                            ¿Cómo diseñar un chatbot capaz de analizar dilemas éticos con información especializada y verificable?
+                        </h2>
+                        <p class="text-xs text-slate-400 leading-relaxed mb-6 font-normal">
+                            El proyecto investigativo nutre al asistente con un corpus validado de leyes, estatutos y directrices para que las respuestas cuenten con respaldo normativo demostrable.
+                        </p>
+
+                        <div class="grid grid-cols-3 gap-2.5 text-center text-xs mb-6">
+                            <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                                <span class="block font-mono font-bold text-slate-400 mb-0.5">01</span>
+                                <span class="text-slate-300 text-[11px]">Consultar conceptos</span>
+                            </div>
+                            <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                                <span class="block font-mono font-bold text-slate-400 mb-0.5">02</span>
+                                <span class="text-slate-300 text-[11px]">Explorar casos</span>
+                            </div>
+                            <div class="bg-slate-950 border border-slate-800 p-3 rounded-xl">
+                                <span class="block font-mono font-bold text-slate-400 mb-0.5">03</span>
+                                <span class="text-slate-300 text-[11px]">Analizar dilemas</span>
+                            </div>
+                        </div>
+
+                        <!-- Criterio central de honestidad técnica -->
+                        <div class="p-4 rounded-2xl bg-slate-950 border-l-2 border-slate-400 text-xs text-slate-300 space-y-1">
+                            <span class="text-[11px] font-semibold text-slate-300 block uppercase tracking-wider font-mono">
+                                Límite de Inferencia
+                            </span>
+                            <p class="text-[11px] leading-relaxed text-slate-400">
+                                Un buen DilemaBot también sabe decir <strong>«no lo sé»</strong>. Reconoce consultas fuera de su dominio y no genera respuestas ante la ausencia de evidencia validada en el corpus.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Sección: Los 6 Pilares Deontológicos -->
+    <section id="principios" class="py-20 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14 space-y-2">
+                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">
+                    Marco Conceptual
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                    Principios Éticos de la IA en la Comunicación
+                </h2>
+                <p class="text-slate-400 text-sm leading-relaxed">
+                    Ejes deontológicos analizados frente al despliegue de herramientas algorítmicas y sistemas generativos en las redacciones.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for pillar in pillars %}
+                <div class="bg-slate-900 border border-slate-800 hover:border-slate-700 rounded-2xl p-6 transition-all duration-200">
+                    <div class="text-xs font-mono text-slate-500 mb-3 font-semibold">
+                        PRINCIPIO 0{{ forloop.counter }}
+                    </div>
+                    <h3 class="text-base font-bold text-white mb-2">{{ pillar.title }}</h3>
+                    <p class="text-xs text-slate-300 mb-3 leading-relaxed">{{ pillar.summary }}</p>
+                    <p class="text-[11px] text-slate-400 leading-relaxed mb-4">{{ pillar.details }}</p>
+                    <div class="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px]">
+                        <span class="text-slate-500 font-mono">Disposición:</span>
+                        <span class="text-slate-300 text-right font-medium">{{ pillar.norm }}</span>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Simulador de Casos y Dilemas -->
+    <section id="dilemas" class="py-20 border-b border-slate-800 bg-slate-900/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+                <div class="space-y-2">
+                    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">
+                        Experimentación
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                        Banco de Casos y Situaciones Dilemáticas
+                    </h2>
+                    <p class="text-slate-400 text-sm">
+                        Selecciona un caso para examinar su tratamiento ético y contrastarlo directamente en el asistente.
+                    </p>
+                </div>
+                <div>
+                    <span class="text-xs font-mono text-slate-500">Casos documentados: {{ dilemmas|length }}</span>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {% for d in dilemmas %}
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-6 flex flex-col justify-between hover:border-slate-700 transition">
+                    <div>
+                        <div class="flex items-center justify-between mb-3 text-xs">
+                            <span class="font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                                {{ d.tag }}
+                            </span>
+                            <span class="font-mono text-slate-500">{{ d.id }}</span>
+                        </div>
+                        <h3 class="text-sm font-bold text-white mb-2 leading-snug">{{ d.title }}</h3>
+                        <p class="text-xs text-slate-300 bg-slate-950 p-3 rounded-xl border border-slate-800/80 mb-4 leading-relaxed italic">
+                            "{{ d.query }}"
+                        </p>
+                        <div class="space-y-1 mb-5">
+                            <span class="text-[10px] text-slate-500 uppercase tracking-wider font-mono block">Valores en tensión:</span>
+                            <div class="flex flex-wrap gap-1">
+                                {% for p in d.principles %}
+                                <span class="text-[10px] bg-slate-800 text-slate-400 px-2 py-0.5 rounded">{{ p }}</span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    <button onclick="window.openDilemaBotWithQuery('{{ d.query|escapejs }}')"
+                        class="w-full flex items-center justify-center gap-2 bg-slate-950 hover:bg-slate-800 text-slate-300 hover:text-white text-xs font-medium py-2.5 px-4 rounded-xl transition border border-slate-800 hover:border-slate-700">
+                        <span>Analizar caso en el asistente</span>
+                        <span class="text-blue-400">→</span>
+                    </button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Marco Normativo y Corpus Validado -->
+    <section id="corpus" class="py-20 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14 space-y-2">
+                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">
+                    Corpus Documental
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                    Base de Conocimiento Validada
+                </h2>
+                <p class="text-slate-400 text-sm">
+                    Los {{ total_docs }} documentos normativos e investigaciones sectoriales indexados para el sustento de las respuestas.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                {% for doc in corpus %}
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5 flex flex-col justify-between">
+                    <div>
+                        <div class="text-[10px] font-mono text-slate-500 mb-2 truncate">
+                            {{ doc.legal_ref }}
+                        </div>
+                        <h3 class="text-sm font-bold text-white mb-2 leading-snug">{{ doc.title }}</h3>
+                        <p class="text-[11px] text-slate-400 leading-relaxed mb-4">{{ doc.description }}</p>
+                    </div>
+                    <div class="pt-3 border-t border-slate-800 text-[10px] text-slate-500 font-mono">
+                        {{ doc.category }}
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección: Arquitectura y Metodología RAG -->
+    <section id="arquitectura" class="py-20 border-b border-slate-800 bg-slate-900/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mb-14 space-y-2">
+                <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400">
+                    Ingeniería de la Información
+                </span>
+                <h2 class="text-2xl sm:text-3xl font-extrabold text-white">
+                    Flujo de Inferencia y Recuperación (RAG)
+                </h2>
+                <p class="text-slate-400 text-sm">
+                    Estructura técnica implementada para asegurar la pertinencia, trazabilidad y ausencia de respuestas arbitrarias.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-5">
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <span class="text-[10px] font-mono text-slate-500 block mb-2">ETAPA 01</span>
+                    <h3 class="text-sm font-bold text-white mb-1.5">Delimitación de Dominio</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Filtro previo que comprueba la correspondencia temática con el periodismo y la ética comunicacional, declinando preguntas ajenas.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <span class="text-[10px] font-mono text-slate-500 block mb-2">ETAPA 02</span>
+                    <h3 class="text-sm font-bold text-white mb-1.5">Recuperación Semántica</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Exploración sobre 1.681 fragmentos del corpus normativo mediante ponderación léxica BM25 y emparejamiento contextual por página.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <span class="text-[10px] font-mono text-slate-500 block mb-2">ETAPA 03</span>
+                    <h3 class="text-sm font-bold text-white mb-1.5">Contextualización Deontológica</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Elaboración estructurada: identificación de valores en tensión, contraste con artículos de ley y recomendaciones orientativas.
+                    </p>
+                </div>
+
+                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-5">
+                    <span class="text-[10px] font-mono text-slate-500 block mb-2">ETAPA 04</span>
+                    <h3 class="text-sm font-bold text-white mb-1.5">Trazabilidad y Auditoría</h3>
+                    <p class="text-xs text-slate-400 leading-relaxed">
+                        Registro de la interacción en base de datos para evaluación técnica, ofreciendo al usuario la citación explícita de páginas.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Tabla de Rúbrica Académica -->
+            <div class="mt-12 bg-slate-900 border border-slate-800 rounded-2xl p-6">
+                <h4 class="text-xs font-mono uppercase tracking-wider text-slate-400 mb-4">
+                    Correspondencia con los Criterios de Evaluación del Reto
+                </h4>
+                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 text-xs">
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="block text-slate-500 text-[10px] font-mono">Funcionamiento Técnico</span>
+                        <strong class="text-slate-200 font-semibold">20% • Django REST</strong>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="block text-slate-500 text-[10px] font-mono">Pertinencia de Respuestas</span>
+                        <strong class="text-slate-200 font-semibold">20% • Cuatro secciones</strong>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="block text-slate-500 text-[10px] font-mono">Trazabilidad de Fuentes</span>
+                        <strong class="text-slate-200 font-semibold">15% • Citación de página</strong>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="block text-slate-500 text-[10px] font-mono">Manejo Fuera de Dominio</span>
+                        <strong class="text-slate-200 font-semibold">10% • Guardrail estricto</strong>
+                    </div>
+                    <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">
+                        <span class="block text-slate-500 text-[10px] font-mono">Experiencia de Usuario</span>
+                        <strong class="text-slate-200 font-semibold">10% • Interfaz editorial</strong>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Institucional -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-800 text-xs text-slate-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono">
+            <div>
+                <span class="text-slate-300 font-semibold">DilemaBot Hub</span>
+                <span>— Universidad Técnica Particular de Loja (UTPL)</span>
+            </div>
+            <div>
+                <span>Reto de Innovación Educativa • 2026 – 2027</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Inclusión del Componente Widget Flotante -->
+    {% include 'portal/components/widget_chat.html' %}
+
+    <!-- Script del Widget -->
+    <script src="/static/js/widget.js"></script>
+</body>
+</html>

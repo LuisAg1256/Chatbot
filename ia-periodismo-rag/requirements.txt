@@ -1,0 +1,23 @@
+# Framework Web
+Django>=5.0,<5.2
+django-cors-headers>=4.3.0
+
+# Variables de entorno
+python-dotenv>=1.0.1
+
+# Procesamiento de PDFs
+pypdf>=4.0.0
+pdfplumber>=0.10.0
+
+# Modelos y RAG
+openai>=1.14.0
+google-generativeai>=0.4.0
+numpy>=1.26.0
+
+# Base de datos y Vector Store
+psycopg2-binary>=2.9.9
+chromadb>=0.4.24
+
+# Utilitarios
+tqdm>=4.66.0
+requests>=2.31.0

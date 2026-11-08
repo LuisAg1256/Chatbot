@@ -1,0 +1,20 @@
+# Entornos virtuales y dependencias
+node_modules/
+.venv/
+venv/
+__pycache__/
+*.pyc
+.next/
+
+# Variables de entorno
+.env
+.env.local
+
+# Bases de datos y datos locales
+*.sqlite3
+postgres_data/
+data/index/
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db

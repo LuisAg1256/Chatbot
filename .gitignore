@@ -1,0 +1,28 @@
+# Entornos virtuales
+.venv/
+venv/
+ENV/
+env/
+*/.venv/
+*/venv/
+
+# Python / Django
+__pycache__/
+*.py[cod]
+*$py.class
+*.sqlite3
+db.sqlite3
+staticfiles/
+
+# Variables de entorno
+.env
+.env.local
+
+# Datos locales y caches
+postgres_data/
+*/data/index/
+data/index/
+
+# Sistema
+.DS_Store
+Thumbs.db
